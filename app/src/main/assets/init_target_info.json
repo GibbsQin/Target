@@ -1,0 +1,101 @@
+[
+	{
+		"progress" : "0",
+		"content" : "活到老，学到老",
+		"icon" : "1",
+		"max" : "30",
+		"completed" : "0",
+		"bgcolor" : "0",
+		"name" : "学习"
+	},
+	{
+		"progress" : "0",
+		"content" : "吃饱了才有力气减肥",
+		"icon" : "1",
+		"max" : "30",
+		"completed" : "0",
+		"bgcolor" : "1",
+		"name" : "减肥"
+	},
+	{
+		"progress" : "0",
+		"content" : "每日进步一点点",
+		"icon" : "1",
+		"max" : "30",
+		"completed" : "0",
+		"bgcolor" : "2",
+		"name" : "背单词"
+	},
+	{
+		"progress" : "0",
+		"content" : "生命在于运动",
+		"icon" : "1",
+		"max" : "30",
+		"completed" : "0",
+		"bgcolor" : "3",
+		"name" : "运动"
+	},
+	{
+		"progress" : "0",
+		"content" : "水是生命之源",
+		"icon" : "1",
+		"max" : "30",
+		"completed" : "0",
+		"bgcolor" : "4",
+		"name" : "喝水"
+	},
+	{
+		"progress" : "0",
+		"content" : "休息好才能身体好",
+		"icon" : "1",
+		"max" : "30",
+		"completed" : "0",
+		"bgcolor" : "5",
+		"name" : "每日早睡"
+	},
+	{
+		"progress" : "0",
+		"content" : "坚持是最可贵的品质",
+		"icon" : "1",
+		"max" : "30",
+		"completed" : "0",
+		"bgcolor" : "6",
+		"name" : "跑步"
+	},
+	{
+		"progress" : "0",
+		"content" : "百忙之中多联系",
+		"icon" : "1",
+		"max" : "30",
+		"completed" : "0",
+		"bgcolor" : "0",
+		"name" : "打电话"
+	},
+	{
+		"progress" : "0",
+		"content" : "音乐可以陶冶情操",
+		"icon" : "1",
+		"max" : "30",
+		"completed" : "0",
+		"bgcolor" : "1",
+		"name" : "学吉他"
+	},
+	{
+		"progress" : "0",
+		"content" : "早睡早起身体好",
+		"icon" : "1",
+		"max" : "30",
+		"completed" : "0",
+		"bgcolor" : "2",
+		"name" : "每日早起"
+	},
+	{
+		"progress" : "0",
+		"content" : "吸烟有害健康",
+		"icon" : "1",
+		"max" : "30",
+		"completed" : "0",
+		"bgcolor" : "3",
+		"name" : "戒烟"
+	}
+]

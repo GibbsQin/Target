@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pref_margin"
+        style="@style/pref_text"
+        android:text="重复"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pref_margin">
+
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/check_box_bg"
+            android:button="@drawable/check_box_bg"
+            android:checked="true"
+            android:text="周一" />
+
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:background="@drawable/check_box_bg"
+            android:button="@drawable/check_box_bg"
+            android:checked="true"
+            android:text="周二" />
+
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:background="@drawable/check_box_bg"
+            android:button="@drawable/check_box_bg"
+            android:checked="true"
+            android:text="周三" />
+
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:background="@drawable/check_box_bg"
+            android:button="@drawable/check_box_bg"
+            android:checked="true"
+            android:text="周四" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/pref_margin"
+        android:layout_marginTop="@dimen/pref_margin">
+
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/check_box_bg"
+            android:button="@drawable/check_box_bg"
+            android:checked="true"
+            android:text="周五" />
+
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:background="@drawable/check_box_bg"
+            android:button="@drawable/check_box_bg"
+            android:checked="true"
+            android:text="周六" />
+
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:background="@drawable/check_box_bg"
+            android:button="@drawable/check_box_bg"
+            android:checked="true"
+            android:text="周日" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</LinearLayout>

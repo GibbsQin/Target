@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pref_margin"
+        style="@style/pref_text"
+        android:text="对自己说"/>
+    
+    <EditText
+        android:id="@+id/say_self"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="@dimen/pref_margin"
+        android:layout_marginBottom="@dimen/pref_margin"
+        android:gravity="top"
+        android:hint="输入对自己的评论..."
+        android:background="@drawable/edit_pref_bg" />
+
+</LinearLayout>

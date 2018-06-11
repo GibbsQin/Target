@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGreen">#00EE76</color>
+    <color name="colorRed">#8B6508</color>
+    <color name="colorGreenDeep">#008B45</color>
+
+    <color name="cornerColor1">#00FA9A</color>
+    <color name="cornerColor2">#00FF00</color>
+    <color name="cornerColor3">#00F5FF</color>
+    <color name="cornerColor4">#00CD00</color>
+    <color name="cornerColor5">#2E8B57</color>
+    <color name="cornerColor6">#CDC0B0</color>
+    <color name="cornerColor7">#7FFF00</color>
+    <color name="cornerColorWhite">#FFFFFF</color>
+    <color name="main_activity_color">#EAEAEA</color>
+
+    <color name="black_overlay">#66000000</color>
+</resources>

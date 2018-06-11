@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:selectpref="http://schemas.android.com/apk/res-auto">
+
+    <com.gibbs.tarket.TargetInfoPreference
+        android:key="target_icon" />
+
+    <com.gibbs.tarket.SelectPreference
+        android:key="date"
+        selectpref:title="起止日期" />
+
+    <com.gibbs.tarket.SelectPreference
+        android:key="clock_in"
+        selectpref:title="打卡时间" />
+
+    <com.gibbs.tarket.SelectPreference
+        android:key="time"
+        selectpref:title="提醒时间" />
+
+    <Preference
+        android:layout="@layout/pref_week" />
+
+    <com.gibbs.tarket.SaySelfPreference
+        android:key="say_self"/>
+
+</PreferenceScreen>

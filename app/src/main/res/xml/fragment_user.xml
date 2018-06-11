@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:TargetSetting="http://schemas.android.com/apk/res-auto">
+
+    <com.gibbs.tarket.TargetSettingPreference
+        TargetSetting:setting_icon="@mipmap/default_target_icon"
+        TargetSetting:setting_title="点击登录"/>
+
+    <PreferenceCategory>
+        <com.gibbs.tarket.TargetSettingPreference
+            TargetSetting:setting_icon="@mipmap/ic_launcher_round"
+            TargetSetting:setting_title="我的钱包"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory>
+        <com.gibbs.tarket.TargetSettingPreference
+            TargetSetting:setting_icon="@mipmap/ic_launcher_round"
+            TargetSetting:setting_title="我的补签卡"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory>
+        <com.gibbs.tarket.TargetSettingPreference
+            TargetSetting:setting_icon="@mipmap/ic_launcher_round"
+            TargetSetting:setting_title="我要吐槽"/>
+
+        <com.gibbs.tarket.TargetSettingPreference
+            TargetSetting:setting_icon="@mipmap/ic_launcher_round"
+            TargetSetting:setting_title="给个好评"/>
+
+        <com.gibbs.tarket.TargetSettingPreference
+            TargetSetting:setting_icon="@mipmap/ic_launcher_round"
+            TargetSetting:setting_title="分享给好友"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory>
+        <com.gibbs.tarket.TargetSettingPreference
+            TargetSetting:setting_icon="@mipmap/ic_launcher_round"
+            TargetSetting:setting_title="联系客服"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>
