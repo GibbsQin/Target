@@ -3,6 +3,8 @@ package com.gibbs.tarket;
 import android.app.Application;
 import android.util.Log;
 
+import com.gibbs.tarket.dao.TargetDAO;
+
 import java.util.ArrayList;
 
 public class TargetApplication extends Application {

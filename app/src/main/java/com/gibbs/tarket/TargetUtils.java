@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
 
+import com.gibbs.tarket.dao.MySQLiteOpenHelper;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;

@@ -7,7 +7,7 @@
 
     <include layout="@layout/layout_title" />
 
-    <com.gibbs.tarket.SpringScrollView
+    <com.gibbs.tarket.view.SpringScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -67,5 +67,5 @@
                 android:textStyle="bold"
                 android:text="推荐"/>
         </LinearLayout>
-    </com.gibbs.tarket.SpringScrollView>
+    </com.gibbs.tarket.view.SpringScrollView>
 </LinearLayout>
