@@ -24,7 +24,6 @@ import com.gibbs.target.dao.TargetDAO;
 import com.gibbs.target.R;
 
 public class TargetView extends FrameLayout implements View.OnTouchListener {
-    private static final String LOG_TAG = "TargetView";
     private Animation animation;
     private OnClickListener mOnClickListener;
     private Context context;
@@ -64,6 +63,7 @@ public class TargetView extends FrameLayout implements View.OnTouchListener {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TargetView);
         targetIconAttr = typedArray.getResourceId(R.styleable.TargetView_target_icon, R.mipmap.ic_launcher_round);
         targetNameAttr = typedArray.getString(R.styleable.TargetView_target_name);
+        typedArray.recycle();
         initChildView(context);
     }
 
@@ -83,23 +83,23 @@ public class TargetView extends FrameLayout implements View.OnTouchListener {
     }
 
     private void performClickEvent() {
-        if (mTargetInfo.completed == TargetUtils.COMPLETED) {
+        if (mTargetInfo.getCompleted() == TargetUtils.COMPLETED) {
             showCancelAlertDialog(context);
-        } else if (mTargetInfo.completed == TargetUtils.UNCOMPLETED) {
+        } else if (mTargetInfo.getCompleted() == TargetUtils.UNCOMPLETED) {
             showOkAlertDialog(context);
         }
     }
 
     public void setTargetInfo(TargetInfo targetInfo) {
         mTargetInfo = targetInfo;
-        setName(targetInfo.name);
-        setIcon(targetInfo.icon);
-        setContent(targetInfo.content);
-        setProgressMax(targetInfo.max);
-        setProgress(targetInfo.progress);
+        setName(targetInfo.getName());
+        setIcon(targetInfo.getIcon());
+        setContent(targetInfo.getContent());
+        setProgressMax(targetInfo.getMax());
+        setProgress(targetInfo.getProgress());
 
-        if (targetInfo.completed == TargetUtils.COMPLETED) {
-            setBgColor(TargetUtils.getRandomColorRes(targetInfo.bgColor));
+        if (targetInfo.getCompleted() == TargetUtils.COMPLETED) {
+            setBgColor(TargetUtils.getRandomColorRes(targetInfo.getBgColor()));
             mContentTextView.setVisibility(GONE);
             mContentCompleteLayout.setVisibility(VISIBLE);
         } else {
@@ -128,19 +128,19 @@ public class TargetView extends FrameLayout implements View.OnTouchListener {
     public void setProgress(int progress) {
         mProgressBar.setProgress(progress);
         int max = mProgressBar.getMax();
-        mProgressText.setText(Integer.toString(progress) + "/" + Integer.toString(max));
+        mProgressText.setText(String.format("%s/%s", progress, max));
 
-        setCompleteText(new String[]{"打卡的第" + Integer.toString(progress) + "天"});
+        setCompleteText(new String[]{"打卡的第" + progress + "天"});
     }
 
     public void setCompleteText(String[] content) {
         mContentCompleteLayout.removeAllViews();
-        for (int i = 0; i < content.length; i++) {
+        for (String s : content) {
             View view = LayoutInflater.from(context).inflate(
                     R.layout.item_target_complete, null, false);
             mContentCompleteLayout.addView(view);
             TextView textView = view.findViewById(R.id.target_content2_content);
-            textView.setText(content[i]);
+            textView.setText(s);
         }
     }
 
@@ -184,8 +184,8 @@ public class TargetView extends FrameLayout implements View.OnTouchListener {
         okBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                mTargetInfo.completed = TargetUtils.UNCOMPLETED;
-                mTargetInfo.progress = mTargetInfo.progress - 1;
+                mTargetInfo.setCompleted(TargetUtils.UNCOMPLETED);
+                mTargetInfo.setProgress(mTargetInfo.getProgress() - 1);
                 TargetDAO.getInstance(context).update(mTargetInfo);
 
                 mContentTextView.setVisibility(VISIBLE);
@@ -222,14 +222,14 @@ public class TargetView extends FrameLayout implements View.OnTouchListener {
         okBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                mTargetInfo.completed = TargetUtils.COMPLETED;
-                mTargetInfo.progress = mTargetInfo.progress + 1;
+                mTargetInfo.setCompleted(TargetUtils.COMPLETED);
+                mTargetInfo.setProgress(mTargetInfo.getProgress() + 1);
                 TargetDAO.getInstance(context).update(mTargetInfo);
 
                 mContentTextView.setVisibility(GONE);
                 mContentCompleteLayout.setVisibility(VISIBLE);
                 setProgress(mProgressBar.getProgress() + 1);
-                setBgColor(TargetUtils.getRandomColorRes(mTargetInfo.bgColor));
+                setBgColor(TargetUtils.getRandomColorRes(mTargetInfo.getBgColor()));
                 okDialog.dismiss();
             }
         });

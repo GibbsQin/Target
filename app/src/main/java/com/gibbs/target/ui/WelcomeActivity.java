@@ -1,34 +1,37 @@
 package com.gibbs.target.ui;
 
-import android.content.Context;
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.FrameLayout;
+import android.os.Handler;
 
 import com.gibbs.target.R;
+import com.gibbs.target.base.BaseActivity;
 
-public class WelcomeActivity extends AppCompatActivity {
+public class WelcomeActivity extends BaseActivity {
+    private Handler mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-
-        FrameLayout welcomeView = findViewById(R.id.welcome_view);
-        welcomeView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startMainActivity(WelcomeActivity.this);
-            }
-        });
+        mHandler = new Handler();
     }
 
-    private void startMainActivity(Context context) {
-        Intent intent = new Intent();
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent.setClass(this, MainActivity.class);
-        context.startActivity(intent);
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+                finish();
+            }
+        }, 1000);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mHandler.removeCallbacksAndMessages(null);
     }
 }

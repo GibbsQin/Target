@@ -5,7 +5,8 @@
     android:id="@+id/welcome_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WelcomeActivity">
+    android:background="@color/colorPrimary"
+    tools:context=".ui.WelcomeActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -17,7 +18,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:ems="1"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorWhite"
             android:text="蜕变，只差一个小目标" />
 
         <View
@@ -25,32 +26,16 @@
             android:layout_height="200dp"
             android:layout_marginTop="50dp"
             android:layout_marginStart="5dp"
-            android:background="@color/colorBlack"/>
+            android:background="@color/colorWhite"/>
     </LinearLayout>
 
-    <LinearLayout
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:orientation="horizontal"
+        android:layout_gravity="bottom|end"
+        android:gravity="center"
         android:layout_marginBottom="20dp"
-        android:layout_marginRight="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:textSize="20sp"
-            android:ems="1"
-            android:textColor="@color/colorBlack"
-            android:text="小目标" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:background="@mipmap/app_icon"/>
-
-    </LinearLayout>
+        android:layout_marginEnd="20dp"
+        android:src="@mipmap/ic_launcher" />
 
 </FrameLayout>

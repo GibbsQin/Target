@@ -1,21 +1,21 @@
 package com.gibbs.target.ui;
 
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.gibbs.target.TargetUtils;
-import com.gibbs.target.view.SelectedTargetView;
 import com.gibbs.target.R;
 import com.gibbs.target.TargetApplication;
 import com.gibbs.target.TargetInfo;
+import com.gibbs.target.TargetUtils;
+import com.gibbs.target.base.BaseActivity;
+import com.gibbs.target.view.SelectedTargetView;
 
 import java.util.List;
 
-public class SelectedTargetActivity extends AppCompatActivity implements View.OnClickListener {
+public class SelectedTargetActivity extends BaseActivity implements View.OnClickListener {
     private LinearLayout mTargetList;
 
     @Override

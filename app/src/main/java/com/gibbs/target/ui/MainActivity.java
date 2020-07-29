@@ -1,15 +1,16 @@
 package com.gibbs.target.ui;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import android.app.FragmentTransaction;
-import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.gibbs.target.R;
+import androidx.annotation.NonNull;
 
-public class MainActivity extends AppCompatActivity  {
+import com.gibbs.target.R;
+import com.gibbs.target.base.BaseActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+public class MainActivity extends BaseActivity {
 
     private ClockInFragment mClockInFragment;
     private TargetFragment mTargetFragment;

@@ -43,13 +43,13 @@ public class TargetUtils {
             return null;
         }
 
-        intent.putExtra(MySQLiteOpenHelper.ROW_ICON, targetInfo.icon);
-        intent.putExtra(MySQLiteOpenHelper.ROW_NAME, targetInfo.name);
-        intent.putExtra(MySQLiteOpenHelper.ROW_CONTENT, targetInfo.content);
-        intent.putExtra(MySQLiteOpenHelper.ROW_COMPLETE,targetInfo.completed);
-        intent.putExtra(MySQLiteOpenHelper.ROW_PROGRESS,targetInfo.progress);
-        intent.putExtra(MySQLiteOpenHelper.ROW_MAX,targetInfo.max);
-        intent.putExtra(MySQLiteOpenHelper.ROW_BGCOLOR,targetInfo.bgColor);
+        intent.putExtra(MySQLiteOpenHelper.ROW_ICON, targetInfo.getIcon());
+        intent.putExtra(MySQLiteOpenHelper.ROW_NAME, targetInfo.getName());
+        intent.putExtra(MySQLiteOpenHelper.ROW_CONTENT, targetInfo.getContent());
+        intent.putExtra(MySQLiteOpenHelper.ROW_COMPLETE,targetInfo.getCompleted());
+        intent.putExtra(MySQLiteOpenHelper.ROW_PROGRESS,targetInfo.getProgress());
+        intent.putExtra(MySQLiteOpenHelper.ROW_MAX,targetInfo.getMax());
+        intent.putExtra(MySQLiteOpenHelper.ROW_BGCOLOR,targetInfo.getBgColor());
 
         return intent;
     }
@@ -92,13 +92,13 @@ public class TargetUtils {
 
     public static ContentValues getContentValues(TargetInfo targetInfo) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(MySQLiteOpenHelper.ROW_PROGRESS, targetInfo.progress);
-        contentValues.put(MySQLiteOpenHelper.ROW_CONTENT, targetInfo.content);
-        contentValues.put(MySQLiteOpenHelper.ROW_ICON, targetInfo.icon);
-        contentValues.put(MySQLiteOpenHelper.ROW_MAX, targetInfo.max);
-        contentValues.put(MySQLiteOpenHelper.ROW_COMPLETE, targetInfo.completed);
-        contentValues.put(MySQLiteOpenHelper.ROW_BGCOLOR, targetInfo.bgColor);
-        contentValues.put(MySQLiteOpenHelper.ROW_NAME, targetInfo.name);
+        contentValues.put(MySQLiteOpenHelper.ROW_PROGRESS, targetInfo.getProgress());
+        contentValues.put(MySQLiteOpenHelper.ROW_CONTENT, targetInfo.getContent());
+        contentValues.put(MySQLiteOpenHelper.ROW_ICON, targetInfo.getIcon());
+        contentValues.put(MySQLiteOpenHelper.ROW_MAX, targetInfo.getMax());
+        contentValues.put(MySQLiteOpenHelper.ROW_COMPLETE, targetInfo.getCompleted());
+        contentValues.put(MySQLiteOpenHelper.ROW_BGCOLOR, targetInfo.getBgColor());
+        contentValues.put(MySQLiteOpenHelper.ROW_NAME, targetInfo.getName());
 
         return contentValues;
     }
@@ -109,13 +109,13 @@ public class TargetUtils {
             return null;
         }
 
-        bundle.putInt(MySQLiteOpenHelper.ROW_ICON, targetInfo.icon);
-        bundle.putString(MySQLiteOpenHelper.ROW_NAME, targetInfo.name);
-        bundle.putString(MySQLiteOpenHelper.ROW_CONTENT, targetInfo.content);
-        bundle.putInt(MySQLiteOpenHelper.ROW_COMPLETE,targetInfo.completed);
-        bundle.putInt(MySQLiteOpenHelper.ROW_PROGRESS,targetInfo.progress);
-        bundle.putInt(MySQLiteOpenHelper.ROW_MAX,targetInfo.max);
-        bundle.putInt(MySQLiteOpenHelper.ROW_BGCOLOR,targetInfo.bgColor);
+        bundle.putInt(MySQLiteOpenHelper.ROW_ICON, targetInfo.getIcon());
+        bundle.putString(MySQLiteOpenHelper.ROW_NAME, targetInfo.getName());
+        bundle.putString(MySQLiteOpenHelper.ROW_CONTENT, targetInfo.getContent());
+        bundle.putInt(MySQLiteOpenHelper.ROW_COMPLETE,targetInfo.getCompleted());
+        bundle.putInt(MySQLiteOpenHelper.ROW_PROGRESS,targetInfo.getProgress());
+        bundle.putInt(MySQLiteOpenHelper.ROW_MAX,targetInfo.getMax());
+        bundle.putInt(MySQLiteOpenHelper.ROW_BGCOLOR,targetInfo.getBgColor());
 
         return bundle;
     }

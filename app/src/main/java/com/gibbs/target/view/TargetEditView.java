@@ -62,13 +62,13 @@ public class TargetEditView extends FrameLayout {
         TextView content = findViewById(R.id.content);
         TextView day = findViewById(R.id.day);
 
-        icon.setBackgroundResource(targetInfo.icon);
-        name.setText(targetInfo.name);
-        content.setText("目标打卡" + targetInfo.max + "天，已坚持" + targetInfo.progress + "天");
-        day.setText(Integer.toString(targetInfo.max-targetInfo.progress) + "天");
+        icon.setBackgroundResource(targetInfo.getIcon());
+        name.setText(targetInfo.getName());
+        content.setText(String.format("目标打卡%s天，已坚持%s天", targetInfo.getMax(), targetInfo.getProgress()));
+        day.setText(String.format("%s天", (targetInfo.getMax() - targetInfo.getProgress())));
 
         LinearLayout linearLayout = findViewById(R.id.edit_layout);
-        linearLayout.setBackgroundResource(TargetUtils.getRandomColorRes(targetInfo.bgColor));
+        linearLayout.setBackgroundResource(TargetUtils.getRandomColorRes(targetInfo.getBgColor()));
     }
 
     public TargetInfo getTargetInfo() {

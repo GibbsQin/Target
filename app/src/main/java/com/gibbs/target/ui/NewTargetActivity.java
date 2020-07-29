@@ -1,6 +1,5 @@
 package com.gibbs.target.ui;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.FragmentTransaction;
 import android.app.TimePickerDialog;
@@ -10,6 +9,7 @@ import android.os.Message;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceFragment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
@@ -17,15 +17,16 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.gibbs.target.R;
 import com.gibbs.target.TargetInfo;
 import com.gibbs.target.TargetUtils;
-import com.gibbs.target.R;
+import com.gibbs.target.base.BaseActivity;
 import com.gibbs.target.preference.SaySelfPreference;
 import com.gibbs.target.preference.SelectPreference;
 import com.gibbs.target.preference.TargetInfoPreference;
 
 
-public class NewTargetActivity extends Activity {
+public class NewTargetActivity extends BaseActivity {
     private static final String LOG_TAG = "NewTargetActivity";
     private TargetInfo mTargetInfo;
     private NewTargetFragment newTargetFragment;
@@ -74,7 +75,7 @@ public class NewTargetActivity extends Activity {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             TargetInfo targetInfo = newTargetFragment.getTargetInfo();
-            if (targetInfo.name == null || targetInfo.name.length() == 0) {
+            if (TextUtils.isEmpty(targetInfo.getName())) {
                 Toast.makeText(NewTargetActivity.this, "请输入目标名称", Toast.LENGTH_LONG).show();
                 return;
             }
@@ -117,8 +118,8 @@ public class NewTargetActivity extends Activity {
 
             mTargetInfo = new TargetInfo();
             mTargetInfo = TargetUtils.getTargetInfo(getArguments());
-            targetInfoPref.setEditText(mTargetInfo.name);
-            saySelfPref.setContent(mTargetInfo.content);
+            targetInfoPref.setEditText(mTargetInfo.getName());
+            saySelfPref.setContent(mTargetInfo.getContent());
             Log.d(LOG_TAG, "Fragment is created!");
         }
 

@@ -2,13 +2,13 @@ package com.gibbs.target;
 
 public class TargetInfo {
     private long rowId;
-    public int icon;
-    public String name;
-    public String content;
-    public int completed;
-    public int progress;
-    public int max;
-    public int bgColor;
+    private int icon;
+    private String name;
+    private String content;
+    private int completed;
+    private int progress;
+    private int max;
+    private int bgColor;
 
     public TargetInfo() {}
 
@@ -99,16 +99,17 @@ public class TargetInfo {
         return bgColor;
     }
 
+    @Override
     public String toString() {
-        String result = "";
-        result += icon + " ";
-        result += name + " ";
-        result += content + " ";
-        result += completed + " ";
-        result += progress + " ";
-        result += max + " ";
-        result += bgColor + " ";
-
-        return result;
+        return "TargetInfo{" +
+                "rowId=" + rowId +
+                ", icon=" + icon +
+                ", name='" + name + '\'' +
+                ", content='" + content + '\'' +
+                ", completed=" + completed +
+                ", progress=" + progress +
+                ", max=" + max +
+                ", bgColor=" + bgColor +
+                '}';
     }
 }
