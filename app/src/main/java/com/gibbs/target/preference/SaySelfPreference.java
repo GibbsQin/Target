@@ -1,4 +1,4 @@
-package com.gibbs.tarket.preference;
+package com.gibbs.target.preference;
 
 import android.content.Context;
 import android.preference.Preference;
@@ -10,7 +10,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.gibbs.tarket.R;
+import com.gibbs.target.R;
 
 public class SaySelfPreference extends Preference {
     private static final String LOG_TAG = "SaySelfPreference";

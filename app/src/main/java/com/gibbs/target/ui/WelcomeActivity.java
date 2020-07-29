@@ -1,4 +1,4 @@
-package com.gibbs.tarket.ui;
+package com.gibbs.target.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.gibbs.tarket.R;
+import com.gibbs.target.R;
 
 public class WelcomeActivity extends AppCompatActivity {
 

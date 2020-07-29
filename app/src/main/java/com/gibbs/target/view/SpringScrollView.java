@@ -1,4 +1,4 @@
-package com.gibbs.tarket.view;
+package com.gibbs.target.view;
 
 import android.content.Context;
 import android.graphics.Rect;

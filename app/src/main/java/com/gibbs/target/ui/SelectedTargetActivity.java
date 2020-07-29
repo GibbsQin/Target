@@ -1,4 +1,4 @@
-package com.gibbs.tarket.ui;
+package com.gibbs.target.ui;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,11 +7,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.gibbs.tarket.R;
-import com.gibbs.tarket.TargetApplication;
-import com.gibbs.tarket.TargetInfo;
-import com.gibbs.tarket.TargetUtils;
-import com.gibbs.tarket.view.SelectedTargetView;
+import com.gibbs.target.TargetUtils;
+import com.gibbs.target.view.SelectedTargetView;
+import com.gibbs.target.R;
+import com.gibbs.target.TargetApplication;
+import com.gibbs.target.TargetInfo;
 
 import java.util.List;
 

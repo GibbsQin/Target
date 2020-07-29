@@ -1,4 +1,4 @@
-package com.gibbs.tarket.dao;
+package com.gibbs.target.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,8 +7,8 @@ import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.gibbs.tarket.TargetInfo;
-import com.gibbs.tarket.TargetUtils;
+import com.gibbs.target.TargetUtils;
+import com.gibbs.target.TargetInfo;
 
 import java.util.ArrayList;
 

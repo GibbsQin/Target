@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.ClockInFragment">
+    tools:context="com.gibbs.target.ui.ClockInFragment">
 
     <include layout="@layout/layout_title" />
 
-    <com.gibbs.tarket.view.SpringScrollView
+    <com.gibbs.target.view.SpringScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -34,6 +34,6 @@
                 android:orientation="vertical">
             </LinearLayout>
         </LinearLayout>
-    </com.gibbs.tarket.view.SpringScrollView>
+    </com.gibbs.target.view.SpringScrollView>
 
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.gibbs.tarket.ui;
+package com.gibbs.target.ui;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -10,7 +10,6 @@ import android.os.Message;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceFragment;
-import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
@@ -18,12 +17,12 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.gibbs.tarket.R;
-import com.gibbs.tarket.TargetInfo;
-import com.gibbs.tarket.TargetUtils;
-import com.gibbs.tarket.preference.SaySelfPreference;
-import com.gibbs.tarket.preference.SelectPreference;
-import com.gibbs.tarket.preference.TargetInfoPreference;
+import com.gibbs.target.TargetInfo;
+import com.gibbs.target.TargetUtils;
+import com.gibbs.target.R;
+import com.gibbs.target.preference.SaySelfPreference;
+import com.gibbs.target.preference.SelectPreference;
+import com.gibbs.target.preference.TargetInfoPreference;
 
 
 public class NewTargetActivity extends Activity {

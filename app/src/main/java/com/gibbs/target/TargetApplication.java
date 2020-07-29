@@ -1,9 +1,9 @@
-package com.gibbs.tarket;
+package com.gibbs.target;
 
 import android.app.Application;
 import android.util.Log;
 
-import com.gibbs.tarket.dao.TargetDAO;
+import com.gibbs.target.dao.TargetDAO;
 
 import java.util.ArrayList;
 

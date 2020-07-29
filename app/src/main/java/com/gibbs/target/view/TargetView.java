@@ -1,4 +1,4 @@
-package com.gibbs.tarket.view;
+package com.gibbs.target.view;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -18,10 +18,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.gibbs.tarket.R;
-import com.gibbs.tarket.TargetInfo;
-import com.gibbs.tarket.TargetUtils;
-import com.gibbs.tarket.dao.TargetDAO;
+import com.gibbs.target.TargetInfo;
+import com.gibbs.target.TargetUtils;
+import com.gibbs.target.dao.TargetDAO;
+import com.gibbs.target.R;
 
 public class TargetView extends FrameLayout implements View.OnTouchListener {
     private static final String LOG_TAG = "TargetView";

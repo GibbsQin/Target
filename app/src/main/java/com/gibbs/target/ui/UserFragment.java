@@ -1,4 +1,4 @@
-package com.gibbs.tarket.ui;
+package com.gibbs.target.ui;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.ListView;
 
-import com.gibbs.tarket.R;
+import com.gibbs.target.R;
 
 
 public class UserFragment extends PreferenceFragment {

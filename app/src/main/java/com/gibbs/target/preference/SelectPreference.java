@@ -1,4 +1,4 @@
-package com.gibbs.tarket.preference;
+package com.gibbs.target.preference;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.gibbs.tarket.R;
+import com.gibbs.target.R;
 
 public class SelectPreference extends Preference {
     private String mContent;

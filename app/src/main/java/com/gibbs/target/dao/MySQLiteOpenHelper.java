@@ -1,4 +1,4 @@
-package com.gibbs.tarket.dao;
+package com.gibbs.target.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,12 +6,11 @@ import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
-import com.gibbs.tarket.R;
-import com.gibbs.tarket.TargetInfo;
-import com.gibbs.tarket.TargetUtils;
+import com.gibbs.target.TargetUtils;
+import com.gibbs.target.R;
+import com.gibbs.target.TargetInfo;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.gibbs.tarket;
+package com.gibbs.target;
 
 public class TargetInfo {
     private long rowId;

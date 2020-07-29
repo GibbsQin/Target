@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.TargetFragment">
+    tools:context="com.gibbs.target.ui.TargetFragment">
 
     <include layout="@layout/layout_title" />
 
-    <com.gibbs.tarket.view.SpringScrollView
+    <com.gibbs.target.view.SpringScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -19,6 +19,6 @@
             android:orientation="vertical">
 
         </LinearLayout>
-    </com.gibbs.tarket.view.SpringScrollView>
+    </com.gibbs.target.view.SpringScrollView>
 
 </LinearLayout>

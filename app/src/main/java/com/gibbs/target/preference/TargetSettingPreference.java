@@ -1,4 +1,4 @@
-package com.gibbs.tarket.preference;
+package com.gibbs.target.preference;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.gibbs.tarket.R;
+import com.gibbs.target.R;
 
 public class TargetSettingPreference extends Preference {
     private int iconRes;

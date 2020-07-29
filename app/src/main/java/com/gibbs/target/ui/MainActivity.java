@@ -1,4 +1,4 @@
-package com.gibbs.tarket.ui;
+package com.gibbs.target.ui;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -7,7 +7,7 @@ import android.app.FragmentTransaction;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.gibbs.tarket.R;
+import com.gibbs.target.R;
 
 public class MainActivity extends AppCompatActivity  {
 

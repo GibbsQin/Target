@@ -1,4 +1,4 @@
-package com.gibbs.tarket;
+package com.gibbs.target;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;

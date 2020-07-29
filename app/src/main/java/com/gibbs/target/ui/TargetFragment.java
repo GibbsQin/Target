@@ -1,4 +1,4 @@
-package com.gibbs.tarket.ui;
+package com.gibbs.target.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +10,11 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.gibbs.tarket.R;
-import com.gibbs.tarket.TargetInfo;
-import com.gibbs.tarket.TargetUtils;
-import com.gibbs.tarket.dao.TargetDAO;
-import com.gibbs.tarket.view.TargetEditView;
+import com.gibbs.target.TargetUtils;
+import com.gibbs.target.dao.TargetDAO;
+import com.gibbs.target.R;
+import com.gibbs.target.TargetInfo;
+import com.gibbs.target.view.TargetEditView;
 
 import java.util.ArrayList;
 

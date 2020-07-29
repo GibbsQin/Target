@@ -1,4 +1,4 @@
-package com.gibbs.tarket;
+package com.gibbs.target;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,7 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
 
-import com.gibbs.tarket.dao.MySQLiteOpenHelper;
+import com.gibbs.target.R;
+import com.gibbs.target.dao.MySQLiteOpenHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
