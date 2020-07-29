@@ -27,7 +27,7 @@
             android:name=".ui.NewTargetActivity"
             android:label="@string/title_activity_new_target" />
         <activity android:name=".ui.SelectedTargetActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" ></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>
