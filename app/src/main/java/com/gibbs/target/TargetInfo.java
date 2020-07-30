@@ -1,5 +1,7 @@
 package com.gibbs.target;
 
+import androidx.annotation.NonNull;
+
 public class TargetInfo {
     private long rowId;
     private int icon;
@@ -10,10 +12,11 @@ public class TargetInfo {
     private int max;
     private int bgColor;
 
-    public TargetInfo() {}
+    public TargetInfo() {
+    }
 
-    public TargetInfo(int icon,String name,String content,int completed,
-                      int progress,int max,int bgColor) {
+    public TargetInfo(int icon, String name, String content, int completed,
+                      int progress, int max, int bgColor) {
         this.icon = icon;
         this.name = name;
         this.content = content;
@@ -23,8 +26,8 @@ public class TargetInfo {
         this.bgColor = bgColor;
     }
 
-    public TargetInfo(long rowId,int icon,String name,String content,int completed,
-                      int progress,int max,int bgColor) {
+    public TargetInfo(long rowId, int icon, String name, String content, int completed,
+                      int progress, int max, int bgColor) {
         this.rowId = rowId;
         this.icon = icon;
         this.name = name;
@@ -99,6 +102,7 @@ public class TargetInfo {
         return bgColor;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "TargetInfo{" +

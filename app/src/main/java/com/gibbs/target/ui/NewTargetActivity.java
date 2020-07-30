@@ -11,9 +11,7 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceFragment;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
 import android.widget.DatePicker;
-import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -35,7 +33,6 @@ public class NewTargetActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_target);
-        setCustomActionBar();
         mTargetInfo = TargetUtils.getTargetInfo(getIntent());
         Bundle bundle = TargetUtils.getBundle(mTargetInfo);
 
@@ -45,29 +42,6 @@ public class NewTargetActivity extends BaseActivity {
 
         fragmentTransaction.replace(R.id.new_target_framelayout, newTargetFragment);
         fragmentTransaction.commit();
-    }
-
-    private void setCustomActionBar() {
-        TextView leftImg = findViewById(R.id.left_view);
-        TextView middleTextView = findViewById(R.id.middle_view);
-        TextView rightImg = findViewById(R.id.right_view);
-
-        rightImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mHandler.sendEmptyMessage(0);
-            }
-        });
-        leftImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
-        leftImg.setText("返回");
-        middleTextView.setText("新建目标");
-        rightImg.setText("完成");
     }
 
     private Handler mHandler = new Handler() {
@@ -169,8 +143,6 @@ public class NewTargetActivity extends BaseActivity {
             mTargetInfo.setMax(TargetUtils.getCurrentMonthDay());
             mTargetInfo.setIcon(R.mipmap.default_target_icon);
             mTargetInfo.setBgColor(TargetUtils.getRandomColor());
-
-            TargetUtils.saveLastColor(getActivity());
             return mTargetInfo;
         }
     }

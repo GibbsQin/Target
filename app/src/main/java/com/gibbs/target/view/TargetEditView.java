@@ -68,7 +68,7 @@ public class TargetEditView extends FrameLayout {
         day.setText(String.format("%s天", (targetInfo.getMax() - targetInfo.getProgress())));
 
         LinearLayout linearLayout = findViewById(R.id.edit_layout);
-        linearLayout.setBackgroundResource(TargetUtils.getRandomColorRes(targetInfo.getBgColor()));
+        linearLayout.setBackground(TargetUtils.createDrawable(getContext(), 10, targetInfo));
     }
 
     public TargetInfo getTargetInfo() {

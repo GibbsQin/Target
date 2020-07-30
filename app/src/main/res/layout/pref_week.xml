@@ -30,7 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:gravity="center"
             android:background="@drawable/check_box_bg"
             android:button="@drawable/check_box_bg"
@@ -41,7 +41,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:gravity="center"
             android:background="@drawable/check_box_bg"
             android:button="@drawable/check_box_bg"
@@ -52,7 +52,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:gravity="center"
             android:background="@drawable/check_box_bg"
             android:button="@drawable/check_box_bg"
@@ -80,7 +80,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:gravity="center"
             android:background="@drawable/check_box_bg"
             android:button="@drawable/check_box_bg"
@@ -91,7 +91,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:gravity="center"
             android:background="@drawable/check_box_bg"
             android:button="@drawable/check_box_bg"
@@ -101,7 +101,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_weight="1" />
 
     </LinearLayout>

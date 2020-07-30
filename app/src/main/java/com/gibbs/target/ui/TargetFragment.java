@@ -1,19 +1,21 @@
 package com.gibbs.target.ui;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import com.gibbs.target.TargetUtils;
-import com.gibbs.target.dao.TargetDAO;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.gibbs.target.R;
 import com.gibbs.target.TargetInfo;
+import com.gibbs.target.TargetUtils;
+import com.gibbs.target.dao.TargetDAO;
 import com.gibbs.target.view.TargetEditView;
 
 import java.util.ArrayList;
@@ -22,7 +24,8 @@ import java.util.ArrayList;
 public class TargetFragment extends Fragment {
 
     private static final String LOG_TAG = "TargetFragment";
-    private LinearLayout mTargetList;
+
+    private ArrayList<TargetInfo> mTargetInfoList = new ArrayList<>();
 
     public TargetFragment() {
         // Required empty public constructor
@@ -36,64 +39,14 @@ public class TargetFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        mTargetInfoList = TargetDAO.getInstance(getActivity()).selectAll();
         // Inflate the layout for this fragment
-        final View view = inflater.inflate(R.layout.fragment_target, container, false);
+        View view = inflater.inflate(R.layout.fragment_clock_in, container, false);
+        RecyclerView recyclerViewClock = view.findViewById(R.id.rv_clock);
+        recyclerViewClock.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false));
+        recyclerViewClock.setAdapter(new TargetAdapter());
 
-        mTargetList = view.findViewById(R.id.target_list);
-        setCustomActionBar(view);
-        initView();
         return view;
-    }
-
-    private void setCustomActionBar(View view) {
-        TextView leftImg = view.findViewById(R.id.left_view);
-        TextView middleTextView = view.findViewById(R.id.middle_view);
-        TextView rightImg = view.findViewById(R.id.right_view);
-        rightImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startSelectTargetActivity();
-            }
-        });
-
-        middleTextView.setText("进行中");
-        //rightImg.setBackgroundResource(R.mipmap.add);
-        rightImg.setText("添加");
-    }
-
-    private void initView() {
-        ArrayList<TargetInfo> list = TargetDAO.getInstance(getActivity()).selectAll();
-        for (TargetInfo targetInfo : list) {
-            addTargetView(targetInfo);
-        }
-    }
-
-    private void addTargetView(TargetInfo targetInfo) {
-        final TargetEditView targetEditView = new TargetEditView(getActivity());
-        targetEditView.setTargetInfo(targetInfo);
-        TextView editBtn = targetEditView.findViewById(R.id.edit_target);
-        editBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TargetInfo ti = targetEditView.getTargetInfo();
-                startSelectTargetActivity(ti);
-            }
-        });
-        TextView deleteBtn = targetEditView.findViewById(R.id.delete_target);
-        deleteBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TargetInfo ti = targetEditView.getTargetInfo();
-                TargetDAO.getInstance(getActivity()).delete(ti);
-                mTargetList.removeView(targetEditView);
-            }
-        });
-        mTargetList.addView(targetEditView);
-        LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) targetEditView.getLayoutParams();
-        lp.topMargin = 25;
-        lp.bottomMargin = 25;
-        lp.leftMargin = 50;
-        lp.rightMargin = 50;
     }
 
     private void startSelectTargetActivity() {
@@ -119,6 +72,36 @@ public class TargetFragment extends Fragment {
         TargetInfo targetInfo = TargetUtils.getTargetInfo(data);
         long rowId = TargetDAO.getInstance(getActivity()).insert(targetInfo);
         targetInfo.setRowId(rowId);
-        addTargetView(targetInfo);
+//        addTargetView(targetInfo);
+    }
+
+    private static final class TargetViewHolder extends RecyclerView.ViewHolder {
+        TargetEditView targetView;
+
+        public TargetViewHolder(@NonNull View itemView) {
+            super(itemView);
+            targetView = itemView.findViewById(R.id.target_view);
+        }
+    }
+
+    private final class TargetAdapter extends RecyclerView.Adapter<TargetViewHolder> {
+
+        @NonNull
+        @Override
+        public TargetViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(getActivity()).inflate(R.layout.item_target_view, parent, false);
+            return new TargetViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull TargetViewHolder holder, int position) {
+            TargetInfo targetInfo = mTargetInfoList.get(position);
+            holder.targetView.setTargetInfo(targetInfo);
+        }
+
+        @Override
+        public int getItemCount() {
+            return mTargetInfoList.size();
+        }
     }
 }

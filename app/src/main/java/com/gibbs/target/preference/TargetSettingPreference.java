@@ -23,29 +23,27 @@ public class TargetSettingPreference extends Preference {
         super(context, attrs, defStyleAttr);
         setLayoutResource(R.layout.pref_target_setting);
 
-        TypedArray typedArray = context.obtainStyledAttributes(attrs,R.styleable.TargetSetting);
-        iconRes = typedArray.getResourceId(R.styleable.TargetSetting_setting_icon,R.mipmap.add);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TargetSetting);
+        iconRes = typedArray.getResourceId(R.styleable.TargetSetting_setting_icon, R.mipmap.add);
         title = typedArray.getString(R.styleable.TargetSetting_setting_title);
         typedArray.recycle();
     }
 
     public TargetSettingPreference(Context context, AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
     }
 
     public TargetSettingPreference(Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     @Override
     protected View onCreateView(ViewGroup parent) {
         View parentView = super.onCreateView(parent);
-        if(null != parentView)
-        {
+        if (null != parentView) {
             View listView = parentView.findViewById(android.R.id.list);
-            if(null != listView)
-            {
-                listView.setPadding( 0, listView.getPaddingTop(), 0, listView.getPaddingBottom());
+            if (null != listView) {
+                listView.setPadding(0, listView.getPaddingTop(), 0, listView.getPaddingBottom());
             }
         }
         return parentView;

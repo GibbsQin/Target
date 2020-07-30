@@ -3,28 +3,28 @@ package com.gibbs.target.view;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.res.TypedArray;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+import com.gibbs.target.R;
 import com.gibbs.target.TargetInfo;
 import com.gibbs.target.TargetUtils;
 import com.gibbs.target.dao.TargetDAO;
-import com.gibbs.target.R;
 
-public class TargetView extends FrameLayout implements View.OnTouchListener {
-    private Animation animation;
+public class TargetView extends ConstraintLayout implements View.OnTouchListener {
+    private static final float SCALE_XY = 1.05f;
+
     private OnClickListener mOnClickListener;
     private Context context;
     private TextView mTargetName;
@@ -32,13 +32,10 @@ public class TargetView extends FrameLayout implements View.OnTouchListener {
     private TextView mContentTextView;
     private TextView mProgressText;
     private ProgressBar mProgressBar;
-    private LinearLayout mContentCompleteLayout;
     private TargetInfo mTargetInfo;
 
     private int targetIconAttr;
     private String targetNameAttr;
-    private String targetContent1;
-    private String[] targetContent2;
 
     public TargetView(Context context) {
         this(context, null);
@@ -51,7 +48,6 @@ public class TargetView extends FrameLayout implements View.OnTouchListener {
     public TargetView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
-        animation = AnimationUtils.loadAnimation(context, R.anim.zoom_out);
         setOnTouchListener(this);
         mOnClickListener = new OnClickListener() {
             @Override
@@ -74,12 +70,6 @@ public class TargetView extends FrameLayout implements View.OnTouchListener {
         mProgressText = findViewById(R.id.progress_text);
         mProgressBar = findViewById(R.id.progress_img);
         mContentTextView = findViewById(R.id.target_content);
-        mContentCompleteLayout = findViewById(R.id.target_complete);
-        setBgColor(R.drawable.corner_shape);
-    }
-
-    public void setBgColor(int res) {
-        setBackgroundResource(res);
     }
 
     private void performClickEvent() {
@@ -98,14 +88,11 @@ public class TargetView extends FrameLayout implements View.OnTouchListener {
         setProgressMax(targetInfo.getMax());
         setProgress(targetInfo.getProgress());
 
+        setBackground(TargetUtils.createDrawable(getContext(), 10, targetInfo));
         if (targetInfo.getCompleted() == TargetUtils.COMPLETED) {
-            setBgColor(TargetUtils.getRandomColorRes(targetInfo.getBgColor()));
             mContentTextView.setVisibility(GONE);
-            mContentCompleteLayout.setVisibility(VISIBLE);
         } else {
-            setBgColor(R.drawable.corner_shape_white);
             mContentTextView.setVisibility(VISIBLE);
-            mContentCompleteLayout.setVisibility(GONE);
         }
     }
 
@@ -129,19 +116,6 @@ public class TargetView extends FrameLayout implements View.OnTouchListener {
         mProgressBar.setProgress(progress);
         int max = mProgressBar.getMax();
         mProgressText.setText(String.format("%s/%s", progress, max));
-
-        setCompleteText(new String[]{"打卡的第" + progress + "天"});
-    }
-
-    public void setCompleteText(String[] content) {
-        mContentCompleteLayout.removeAllViews();
-        for (String s : content) {
-            View view = LayoutInflater.from(context).inflate(
-                    R.layout.item_target_complete, null, false);
-            mContentCompleteLayout.addView(view);
-            TextView textView = view.findViewById(R.id.target_content2_content);
-            textView.setText(s);
-        }
     }
 
     @Override
@@ -149,13 +123,19 @@ public class TargetView extends FrameLayout implements View.OnTouchListener {
         int action = event.getAction();
         switch (action) {
             case MotionEvent.ACTION_DOWN:
-                v.startAnimation(animation);
+                v.setScaleX(SCALE_XY);
+                v.setScaleY(SCALE_XY);
                 return true;
             case MotionEvent.ACTION_UP:
-                v.clearAnimation();
+                v.setScaleX(1.0f);
+                v.setScaleY(1.0f);
                 if (mOnClickListener != null) {
                     mOnClickListener.onClick(v);
                 }
+                return true;
+            case MotionEvent.ACTION_CANCEL:
+                v.setScaleX(1.0f);
+                v.setScaleY(1.0f);
                 return true;
         }
         return false;
@@ -189,9 +169,8 @@ public class TargetView extends FrameLayout implements View.OnTouchListener {
                 TargetDAO.getInstance(context).update(mTargetInfo);
 
                 mContentTextView.setVisibility(VISIBLE);
-                mContentCompleteLayout.setVisibility(GONE);
                 setProgress(mProgressBar.getProgress() - 1);
-                setBgColor(R.drawable.corner_shape_white);
+                setBackgroundResource(R.drawable.corner_shape_white);
                 cancelDialog.dismiss();
             }
         });
@@ -227,9 +206,8 @@ public class TargetView extends FrameLayout implements View.OnTouchListener {
                 TargetDAO.getInstance(context).update(mTargetInfo);
 
                 mContentTextView.setVisibility(GONE);
-                mContentCompleteLayout.setVisibility(VISIBLE);
                 setProgress(mProgressBar.getProgress() + 1);
-                setBgColor(TargetUtils.getRandomColorRes(mTargetInfo.getBgColor()));
+                setBackground(TargetUtils.createDrawable(getContext(), 10, mTargetInfo));
                 okDialog.dismiss();
             }
         });

@@ -64,7 +64,7 @@ public class SelectedTargetView extends FrameLayout {
         targetNameAttr = targetInfo.getName();
         targetContentAttr = targetInfo.getContent();
 
-        setBackgroundResource(TargetUtils.getRandomColorRes(targetInfo.getBgColor()));
+        setBackground(TargetUtils.createDrawable(getContext(), 10, targetInfo));
         initChildView(context);
     }
 

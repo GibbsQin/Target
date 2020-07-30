@@ -22,27 +22,11 @@ public class SelectedTargetActivity extends BaseActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selected_target);
-        setCustomActionBar();
 
         mTargetList = findViewById(R.id.target_list);
         LinearLayout linearLayout = (LinearLayout) mTargetList.getChildAt(0);
         linearLayout.setOnClickListener(this);
         initSelectedTargetList();
-    }
-
-    private void setCustomActionBar() {
-        TextView leftImg = findViewById(R.id.left_view);
-        TextView middleTextView = findViewById(R.id.middle_view);
-        TextView rightImg = findViewById(R.id.right_view);
-        leftImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
-        leftImg.setText("返回");
-        middleTextView.setText("新建目标");
     }
 
     private void initSelectedTargetList() {

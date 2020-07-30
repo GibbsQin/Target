@@ -112,26 +112,26 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         String jsonString = readStringFromFile(JSON_FILE_NAME);
 
         List<TargetInfo> targetInfoList;
-        targetInfoList = (List<TargetInfo>) JSON.parseArray(jsonString, TargetInfo.class);
+        targetInfoList = JSON.parseArray(jsonString, TargetInfo.class);
 
         return targetInfoList;
     }
 
     private String readStringFromFile(String filePath) {
-        String res = "";
+        StringBuilder res = new StringBuilder();
         try {
             InputStream inputStream = context.getAssets().open(filePath);
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
-            String line = "";
+            String line;
             while ((line = bufferedReader.readLine()) != null) {
-                res += line + "\n";
+                res.append(line).append("\n");
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return res;
+        return res.toString();
     }
 }

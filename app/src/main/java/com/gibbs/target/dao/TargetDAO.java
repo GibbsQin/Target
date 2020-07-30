@@ -15,15 +15,11 @@ import java.util.ArrayList;
 public class TargetDAO {
     private static final String LOG_TAG = "TargetDAO";
     private static TargetDAO sTargetDAO;
-    private Context context;
     private MySQLiteOpenHelper mySQLiteOpenHelper;
-    private static final String SELECT_SQL =
-            "select * from target";
-    private static final String SELECT_INIT_SQL =
-            "select * from init_target";
+    private static final String SELECT_SQL = "select * from target";
+    private static final String SELECT_INIT_SQL = "select * from init_target";
 
     private TargetDAO(Context context) {
-        this.context = context;
         mySQLiteOpenHelper = new MySQLiteOpenHelper(context);
     }
 

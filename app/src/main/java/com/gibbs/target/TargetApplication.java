@@ -15,9 +15,6 @@ public class TargetApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Log.d(LOG_TAG, "onCreate");
-        int color = TargetUtils.getLastColor(this);
-        TargetUtils.setLastColor(color);
-
         mInitTargetInfoList = TargetDAO.getInstance(this).selectInitAll();
     }
 

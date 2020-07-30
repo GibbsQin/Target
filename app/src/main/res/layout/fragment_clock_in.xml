@@ -6,34 +6,9 @@
     android:orientation="vertical"
     tools:context="com.gibbs.target.ui.ClockInFragment">
 
-    <include layout="@layout/layout_title" />
-
-    <com.gibbs.target.view.SpringScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_clock"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/left_tool_kit"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/right_tool_kit"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-            </LinearLayout>
-        </LinearLayout>
-    </com.gibbs.target.view.SpringScrollView>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

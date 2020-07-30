@@ -1,16 +1,5 @@
 <resources>
-    <string name="app_name">Tarket</string>
-    <string name="title_activity_main">MainActivity</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">Target</string>
+    <string name="title_activity_main">Target</string>
     <string name="title_activity_new_target">new target</string>
-
-    <!-- Strings related to Settings -->
-
-    <!-- Example General settings -->
-
-    <!-- Example settings for Data & Sync -->
-
-    <!-- Example settings for Notifications -->
-
 </resources>
