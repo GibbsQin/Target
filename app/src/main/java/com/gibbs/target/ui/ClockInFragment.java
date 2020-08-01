@@ -1,6 +1,5 @@
 package com.gibbs.target.ui;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,13 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gibbs.target.R;
 import com.gibbs.target.TargetInfo;
 import com.gibbs.target.dao.TargetDAO;
-import com.gibbs.target.view.TargetView;
+import com.gibbs.target.view.TargetSquareView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,18 +25,13 @@ public class ClockInFragment extends Fragment {
 
     private ArrayList<TargetInfo> mTargetInfoList = new ArrayList<>();
 
-    public ClockInFragment() {
-        // Required empty public constructor
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mTargetInfoList = TargetDAO.getInstance(getActivity()).selectAll();
         Log.i(TAG, "mTargetInfoList = " + Arrays.toString(mTargetInfoList.toArray()));
         // Inflate the layout for this fragment
@@ -49,11 +44,11 @@ public class ClockInFragment extends Fragment {
     }
 
     private static final class TargetViewHolder extends RecyclerView.ViewHolder {
-        TargetView targetView;
+        TargetSquareView targetSquareView;
 
         public TargetViewHolder(@NonNull View itemView) {
             super(itemView);
-            targetView = itemView.findViewById(R.id.target_view);
+            targetSquareView = itemView.findViewById(R.id.target_view);
         }
     }
 
@@ -62,14 +57,14 @@ public class ClockInFragment extends Fragment {
         @NonNull
         @Override
         public TargetViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(getActivity()).inflate(R.layout.item_clock_view, parent, false);
+            View view = LayoutInflater.from(getActivity()).inflate(R.layout.item_clock_in_view, parent, false);
             return new TargetViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(@NonNull TargetViewHolder holder, int position) {
             TargetInfo targetInfo = mTargetInfoList.get(position);
-            holder.targetView.setTargetInfo(targetInfo);
+            holder.targetSquareView.setTargetInfo(targetInfo);
         }
 
         @Override

@@ -8,9 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.alibaba.fastjson.JSON;
-import com.gibbs.target.TargetUtils;
-import com.gibbs.target.R;
 import com.gibbs.target.TargetInfo;
+import com.gibbs.target.TargetUtils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,19 +20,16 @@ import java.util.List;
 public class MySQLiteOpenHelper extends SQLiteOpenHelper {
     private Context context;
     private static final String JSON_FILE_NAME = "init_target_info.json";
-    private static final int INIT_TARGET_SUM = 5;
 
     public static final String DB_MESSAGE = "target.db";
     public static final int DB_VERSION = 1;
     public static final String TABLE_MSG = "target";
     public static final String TABLE_INIT = "init_target";
     public static final String ROW_ID = "_id";
-    public static final String ROW_ICON = "icon";
     public static final String ROW_NAME = "name";
     public static final String ROW_CONTENT = "content";
     public static final String ROW_COMPLETE = "completed";
     public static final String ROW_PROGRESS = "progress";
-    public static final String ROW_BGCOLOR = "bgcolor";
     public static final String ROW_MAX = "max";
 
     private static final String CREATE_TARGET_TABLE =
@@ -76,14 +72,8 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
         List<TargetInfo> list = getInitTargetList();
         for (TargetInfo info : list) {
-            info.setIcon(R.mipmap.default_target_icon);
-            info.setMax(TargetUtils.getCurrentMonthDay());
-            insert(db,info,TABLE_INIT);
-        }
-
-        for (int i=0; i<list.size() && i<INIT_TARGET_SUM; i++) {
-            TargetInfo info = list.get(i);
-            insert(db,info,TABLE_MSG);
+            insert(db, info, TABLE_INIT);
+            insert(db, info, TABLE_MSG);
         }
     }
 

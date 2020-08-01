@@ -1,19 +1,14 @@
 <resources>
 
-    <!-- Declare custom theme attributes that allow changing which styles are
-         used for button bars depending on the API level.
-         ?android:attr/buttonBarStyle is new as of API 11 so this is
-         necessary to support previous API levels. -->
-    <declare-styleable name="ButtonBarContainerTheme">
-        <attr name="metaButtonBarStyle" format="reference" />
-        <attr name="metaButtonBarButtonStyle" format="reference" />
-    </declare-styleable>
-
     <declare-styleable name="TargetView">
         <attr name="target_icon" format="reference" />
         <attr name="target_name" format="string" />
         <attr name="target_content" format="string" />
-        <attr name="target_complete" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="JumpSettingView">
+        <attr name="icon" format="reference" />
+        <attr name="name" format="string" />
     </declare-styleable>
 
     <declare-styleable name="selectpref">

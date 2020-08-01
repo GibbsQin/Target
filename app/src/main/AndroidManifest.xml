@@ -3,15 +3,16 @@
     package="com.gibbs.target">
 
     <application
-        android:name="com.gibbs.target.TargetApplication"
+        android:name=".TargetApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
-            android:name="com.gibbs.target.ui.WelcomeActivity"
+            android:name=".ui.WelcomeActivity"
             android:theme="@style/WelcomeTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,13 +21,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.gibbs.target.ui.MainActivity"
+            android:name=".ui.MainActivity"
             android:label="@string/title_activity_main" />
         <activity
-            android:name="com.gibbs.target.ui.NewTargetActivity"
+            android:name=".ui.EditTargetActivity"
             android:label="@string/title_activity_new_target" />
-        <activity
-            android:name="com.gibbs.target.ui.SelectedTargetActivity" />
+        <activity android:name=".ui.NewTargetActivity" />
     </application>
 
 </manifest>

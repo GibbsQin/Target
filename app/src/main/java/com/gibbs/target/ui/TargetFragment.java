@@ -1,14 +1,17 @@
 package com.gibbs.target.ui;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,24 +19,22 @@ import com.gibbs.target.R;
 import com.gibbs.target.TargetInfo;
 import com.gibbs.target.TargetUtils;
 import com.gibbs.target.dao.TargetDAO;
-import com.gibbs.target.view.TargetEditView;
+import com.gibbs.target.view.TargetRectangleView;
 
 import java.util.ArrayList;
-
 
 public class TargetFragment extends Fragment {
 
     private static final String LOG_TAG = "TargetFragment";
 
-    private ArrayList<TargetInfo> mTargetInfoList = new ArrayList<>();
+    private static final int REQUEST_CODE_NE_TARGET = 1;
 
-    public TargetFragment() {
-        // Required empty public constructor
-    }
+    private ArrayList<TargetInfo> mTargetInfoList = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -51,32 +52,44 @@ public class TargetFragment extends Fragment {
 
     private void startSelectTargetActivity() {
         Intent intent = new Intent();
-        intent.setClass(getActivity(), SelectedTargetActivity.class);
-        startActivityForResult(intent, 1);
+        intent.setClass(getActivity(), NewTargetActivity.class);
+        startActivityForResult(intent, REQUEST_CODE_NE_TARGET);
     }
 
     private void startSelectTargetActivity(TargetInfo targetInfo) {
         Intent intent = TargetUtils.getIntent(targetInfo);
-        intent.setClass(getActivity(), SelectedTargetActivity.class);
-        startActivityForResult(intent, 1);
+        intent.setClass(getActivity(), NewTargetActivity.class);
+        startActivityForResult(intent, REQUEST_CODE_NE_TARGET);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_new_target, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_menu_new_target) {
+            startSelectTargetActivity();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Log.d(LOG_TAG, "onActivityResult");
-        if (resultCode != 1) {
-            return;
+        if (resultCode == REQUEST_CODE_NE_TARGET) {
+            TargetInfo targetInfo = TargetUtils.getTargetInfo(data);
+            long rowId = TargetDAO.getInstance(getActivity()).insert(targetInfo);
+            targetInfo.setRowId(rowId);
         }
-
-        TargetInfo targetInfo = TargetUtils.getTargetInfo(data);
-        long rowId = TargetDAO.getInstance(getActivity()).insert(targetInfo);
-        targetInfo.setRowId(rowId);
-//        addTargetView(targetInfo);
     }
 
     private static final class TargetViewHolder extends RecyclerView.ViewHolder {
-        TargetEditView targetView;
+        TargetRectangleView targetView;
 
         public TargetViewHolder(@NonNull View itemView) {
             super(itemView);

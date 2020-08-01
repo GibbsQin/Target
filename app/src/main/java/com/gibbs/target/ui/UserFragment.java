@@ -1,32 +1,15 @@
 package com.gibbs.target.ui;
 
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
-import androidx.annotation.Nullable;
-import android.view.View;
-import android.widget.ListView;
+import androidx.preference.PreferenceFragmentCompat;
 
 import com.gibbs.target.R;
 
 
-public class UserFragment extends PreferenceFragment {
-    private static final String LOG_TAG = "UserFragment";
-
-    public UserFragment() {
-        // Required empty public constructor
-    }
+public class UserFragment extends PreferenceFragmentCompat {
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.fragment_user);
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        ListView listView = getView().findViewById(android.R.id.list);
-        listView.setPadding(0,0,0,0);
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        setPreferencesFromResource(R.xml.preference_user, rootKey);
     }
 }

@@ -24,7 +24,7 @@ public class TargetSettingPreference extends Preference {
         setLayoutResource(R.layout.pref_target_setting);
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TargetSetting);
-        iconRes = typedArray.getResourceId(R.styleable.TargetSetting_setting_icon, R.mipmap.add);
+        iconRes = typedArray.getResourceId(R.styleable.TargetSetting_setting_icon, R.mipmap.default_target_icon);
         title = typedArray.getString(R.styleable.TargetSetting_setting_title);
         typedArray.recycle();
     }
@@ -52,11 +52,11 @@ public class TargetSettingPreference extends Preference {
     @Override
     protected void onBindView(View view) {
         super.onBindView(view);
-
-        ImageView targetIcon = view.findViewById(R.id.target_setting_icon);
-        TextView targetTitle = view.findViewById(R.id.target_setting_name);
-
-        targetIcon.setBackgroundResource(iconRes);
-        targetTitle.setText(title);
+//
+//        ImageView targetIcon = view.findViewById(R.id.target_setting_icon);
+//        TextView targetTitle = view.findViewById(R.id.target_setting_name);
+//
+//        targetIcon.setBackgroundResource(iconRes);
+//        targetTitle.setText(title);
     }
 }

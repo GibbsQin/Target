@@ -4,26 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@mipmap/default_target_icon"/>
-
-        <ImageView
-            android:id="@+id/close"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="end|top"
-            android:scaleType="center"
-            android:src="@mipmap/close"/>
-    </FrameLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@mipmap/default_target_icon"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -35,23 +22,5 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:hint="输入打卡心情"/>
-
-    <Button
-        android:id="@+id/ok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/colorGreenDeep"
-        android:layout_marginBottom="10dp"
-        android:text="我知道了"/>
-
-    <Button
-        android:id="@+id/cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/cornerColorWhite"
-        android:layout_marginBottom="10dp"
-        android:text="不再显示"/>
 
 </LinearLayout>

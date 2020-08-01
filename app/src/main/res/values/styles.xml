@@ -21,8 +21,4 @@
         <item name="android:background">@color/colorPrimary</item>
     </style>
 
-    <style name="pref_text">
-        <item name="android:textSize">15sp</item>
-        <item name="android:textColor">@color/colorBlack</item>
-    </style>
 </resources>

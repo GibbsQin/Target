@@ -44,13 +44,11 @@ public class TargetUtils {
             return intent;
         }
 
-        intent.putExtra(MySQLiteOpenHelper.ROW_ICON, targetInfo.getIcon());
         intent.putExtra(MySQLiteOpenHelper.ROW_NAME, targetInfo.getName());
         intent.putExtra(MySQLiteOpenHelper.ROW_CONTENT, targetInfo.getContent());
         intent.putExtra(MySQLiteOpenHelper.ROW_COMPLETE, targetInfo.getCompleted());
         intent.putExtra(MySQLiteOpenHelper.ROW_PROGRESS, targetInfo.getProgress());
         intent.putExtra(MySQLiteOpenHelper.ROW_MAX, targetInfo.getMax());
-        intent.putExtra(MySQLiteOpenHelper.ROW_BGCOLOR, targetInfo.getBgColor());
 
         return intent;
     }
@@ -59,16 +57,14 @@ public class TargetUtils {
         if (data == null) {
             return null;
         }
-        int icon = data.getIntExtra(MySQLiteOpenHelper.ROW_ICON, R.mipmap.default_target_icon);
         String name = data.getStringExtra(MySQLiteOpenHelper.ROW_NAME);
         String content = data.getStringExtra(MySQLiteOpenHelper.ROW_CONTENT);
         int complete = data.getIntExtra(MySQLiteOpenHelper.ROW_COMPLETE, 0);
         int progress = data.getIntExtra(MySQLiteOpenHelper.ROW_PROGRESS, 0);
         int max = data.getIntExtra(MySQLiteOpenHelper.ROW_MAX, 30);
-        int bgColor = data.getIntExtra(MySQLiteOpenHelper.ROW_BGCOLOR, 0);
 
         TargetInfo targetInfo;
-        targetInfo = new TargetInfo(icon, name, content, complete, progress, max, bgColor);
+        targetInfo = new TargetInfo(name, content, complete, progress, max);
 
         return targetInfo;
     }
@@ -80,11 +76,9 @@ public class TargetUtils {
             String content = cursor.getString(cursor.getColumnIndex(MySQLiteOpenHelper.ROW_CONTENT));
             int completed = cursor.getInt(cursor.getColumnIndex(MySQLiteOpenHelper.ROW_COMPLETE));
             String name = cursor.getString(cursor.getColumnIndex(MySQLiteOpenHelper.ROW_NAME));
-            int icon = cursor.getInt(cursor.getColumnIndex(MySQLiteOpenHelper.ROW_ICON));
             int progress = cursor.getInt(cursor.getColumnIndex(MySQLiteOpenHelper.ROW_PROGRESS));
             int max = cursor.getInt(cursor.getColumnIndex(MySQLiteOpenHelper.ROW_MAX));
-            int bgColor = cursor.getInt(cursor.getColumnIndex(MySQLiteOpenHelper.ROW_BGCOLOR));
-            TargetInfo targetInfo = new TargetInfo(id, icon, name, content, completed, progress, max, bgColor);
+            TargetInfo targetInfo = new TargetInfo(id, name, content, completed, progress, max);
 
             targetInfoList.add(targetInfo);
         }
@@ -96,10 +90,8 @@ public class TargetUtils {
         ContentValues contentValues = new ContentValues();
         contentValues.put(MySQLiteOpenHelper.ROW_PROGRESS, targetInfo.getProgress());
         contentValues.put(MySQLiteOpenHelper.ROW_CONTENT, targetInfo.getContent());
-        contentValues.put(MySQLiteOpenHelper.ROW_ICON, targetInfo.getIcon());
         contentValues.put(MySQLiteOpenHelper.ROW_MAX, targetInfo.getMax());
         contentValues.put(MySQLiteOpenHelper.ROW_COMPLETE, targetInfo.getCompleted());
-        contentValues.put(MySQLiteOpenHelper.ROW_BGCOLOR, targetInfo.getBgColor());
         contentValues.put(MySQLiteOpenHelper.ROW_NAME, targetInfo.getName());
 
         return contentValues;
@@ -111,13 +103,11 @@ public class TargetUtils {
             return null;
         }
 
-        bundle.putInt(MySQLiteOpenHelper.ROW_ICON, targetInfo.getIcon());
         bundle.putString(MySQLiteOpenHelper.ROW_NAME, targetInfo.getName());
         bundle.putString(MySQLiteOpenHelper.ROW_CONTENT, targetInfo.getContent());
         bundle.putInt(MySQLiteOpenHelper.ROW_COMPLETE, targetInfo.getCompleted());
         bundle.putInt(MySQLiteOpenHelper.ROW_PROGRESS, targetInfo.getProgress());
         bundle.putInt(MySQLiteOpenHelper.ROW_MAX, targetInfo.getMax());
-        bundle.putInt(MySQLiteOpenHelper.ROW_BGCOLOR, targetInfo.getBgColor());
 
         return bundle;
     }
@@ -126,16 +116,14 @@ public class TargetUtils {
         if (data == null) {
             return null;
         }
-        int icon = data.getInt(MySQLiteOpenHelper.ROW_ICON, R.mipmap.default_target_icon);
         String name = data.getString(MySQLiteOpenHelper.ROW_NAME);
         String content = data.getString(MySQLiteOpenHelper.ROW_CONTENT);
         int complete = data.getInt(MySQLiteOpenHelper.ROW_COMPLETE, 0);
         int progress = data.getInt(MySQLiteOpenHelper.ROW_PROGRESS, 0);
         int max = data.getInt(MySQLiteOpenHelper.ROW_MAX, 30);
-        int bgColor = data.getInt(MySQLiteOpenHelper.ROW_BGCOLOR, 0);
 
         TargetInfo targetInfo;
-        targetInfo = new TargetInfo(icon, name, content, complete, progress, max, bgColor);
+        targetInfo = new TargetInfo(name, content, complete, progress, max);
 
         return targetInfo;
     }
@@ -177,8 +165,13 @@ public class TargetUtils {
         return gd;
     }
 
-    public static GradientDrawable createDrawable(Context context, int roundRadiusDip, TargetInfo targetInfo) {
-        int colorRes = context.getResources().getColor(COLORS[targetInfo.getBgColor() % COLORS.length]);
+    public static GradientDrawable createDrawable(Context context, int roundRadiusDip) {
+        long timeStamp = System.nanoTime();
+        int colorRes = context.getResources().getColor(COLORS[(int) (timeStamp % COLORS.length)]);
         return createDrawable(context, roundRadiusDip, colorRes);
+    }
+
+    public static GradientDrawable createDrawable(Context context) {
+        return createDrawable(context, 10);
     }
 }

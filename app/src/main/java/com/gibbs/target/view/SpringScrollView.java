@@ -3,7 +3,6 @@ package com.gibbs.target.view;
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.TranslateAnimation;
@@ -48,7 +47,6 @@ public class SpringScrollView extends ScrollView {
 
     public void commOnTouchEvent(MotionEvent ev) {
         int action = ev.getAction();
-        Log.d("commOnTouchEvent", "action=" + action);
         switch (action) {
             case MotionEvent.ACTION_DOWN:
                 y = ev.getY();
@@ -95,10 +93,7 @@ public class SpringScrollView extends ScrollView {
     public boolean isNeedMove() {
         int offset = inner.getMeasuredHeight() - getHeight();
         int scrollY = getScrollY();
-        if (scrollY == 0 || scrollY == offset) {
-            return true;
-        }
-        return false;
+        return scrollY == 0 || scrollY == offset;
     }
 
 }

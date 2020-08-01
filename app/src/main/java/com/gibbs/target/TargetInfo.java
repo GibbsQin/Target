@@ -4,38 +4,26 @@ import androidx.annotation.NonNull;
 
 public class TargetInfo {
     private long rowId;
-    private int icon;
     private String name;
     private String content;
     private int completed;
     private int progress;
     private int max;
-    private int bgColor;
 
     public TargetInfo() {
     }
 
-    public TargetInfo(int icon, String name, String content, int completed,
-                      int progress, int max, int bgColor) {
-        this.icon = icon;
+    public TargetInfo(String name, String content, int completed, int progress, int max) {
         this.name = name;
         this.content = content;
         this.completed = completed;
         this.progress = progress;
         this.max = max;
-        this.bgColor = bgColor;
     }
 
-    public TargetInfo(long rowId, int icon, String name, String content, int completed,
-                      int progress, int max, int bgColor) {
+    public TargetInfo(long rowId, String name, String content, int completed, int progress, int max) {
+        this(name, content, completed, progress, max);
         this.rowId = rowId;
-        this.icon = icon;
-        this.name = name;
-        this.content = content;
-        this.completed = completed;
-        this.progress = progress;
-        this.max = max;
-        this.bgColor = bgColor;
     }
 
     public void setRowId(long id) {
@@ -44,14 +32,6 @@ public class TargetInfo {
 
     public long getRowId() {
         return rowId;
-    }
-
-    public void setIcon(int icon) {
-        this.icon = icon;
-    }
-
-    public int getIcon() {
-        return icon;
     }
 
     public void setName(String name) {
@@ -94,26 +74,16 @@ public class TargetInfo {
         return max;
     }
 
-    public void setBgColor(int color) {
-        this.bgColor = color;
-    }
-
-    public int getBgColor() {
-        return bgColor;
-    }
-
     @NonNull
     @Override
     public String toString() {
         return "TargetInfo{" +
                 "rowId=" + rowId +
-                ", icon=" + icon +
                 ", name='" + name + '\'' +
                 ", content='" + content + '\'' +
                 ", completed=" + completed +
                 ", progress=" + progress +
                 ", max=" + max +
-                ", bgColor=" + bgColor +
                 '}';
     }
 }

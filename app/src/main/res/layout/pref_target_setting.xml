@@ -1,35 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingStart="16dp"
-    android:paddingRight="16dp"
-    android:paddingEnd="16dp"
-    android:background="@color/cornerColorWhite">
+    android:layout_height="wrap_content"
+    android:minHeight="60dp"
+    android:padding="16dp">
 
     <ImageView
-        android:id="@+id/target_setting_icon"
+        android:id="@+id/iv_setting_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"/>
+        android:layout_marginBottom="5dp" />
 
     <TextView
-        android:id="@+id/target_setting_name"
+        android:id="@+id/tv_setting_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
-        android:layout_marginStart="10dp"
-        android:textStyle="bold"
-        android:textSize="15sp"
         android:layout_gravity="center_vertical"
-        android:gravity="center_vertical"/>
+        android:layout_marginStart="10dp"
+        android:layout_weight="3"
+        android:gravity="center_vertical"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|right"
-        android:background="@mipmap/complete"/>
+        android:layout_gravity="center_vertical|end"
+        android:background="@mipmap/complete" />
 
 </LinearLayout>
